@@ -1,0 +1,289 @@
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database AdressBook;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| adressbook         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.06 sec)
+
+mysql> use AdressBook;
+Database changed
+mysql> use AdressBook;
+Database changed
+mysql> create table AdressBook(Id int not null auto_increment, FirstName varchar(50) not null, LastName varchar(52) not null, Address varchar(50) not null, City varchar(53) not null, State varchar(50) not null, ZipCode varchar(20) not null, PhoneNumber varchar(30) not null, Email varchar(50) not null, Primary Key(Id));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc AdressBook
+    ->
+    -> desc AdressBook;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc AdressBook' at line 3
+mysql> desc AdressBook;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| Id          | int         | NO   | PRI | NULL    | auto_increment |
+| FirstName   | varchar(50) | NO   |     | NULL    |                |
+| LastName    | varchar(52) | NO   |     | NULL    |                |
+| Address     | varchar(50) | NO   |     | NULL    |                |
+| City        | varchar(53) | NO   |     | NULL    |                |
+| State       | varchar(50) | NO   |     | NULL    |                |
+| ZipCode     | varchar(20) | NO   |     | NULL    |                |
+| PhoneNumber | varchar(30) | NO   |     | NULL    |                |
+| Email       | varchar(50) | NO   |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.03 sec)
+
+mysql> insert into AdressBook (FirstName, LastName, Address, City, State, ZipCode, PhoneNumber, Email) values ('Veeresh','Yalawar','Bgk','Bagalkot','Karnataka','587101','8867743684','veereshyalawar2@gmail.com');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> selest * from Adressbook
+    -> selest * from Adressbook;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selest * from Adressbook
+selest * from Adressbook' at line 1
+mysql> select * from AdressBook;
++----+-----------+----------+---------+----------+-----------+---------+-------------+---------------------------+
+| Id | FirstName | LastName | Address | City     | State     | ZipCode | PhoneNumber | Email                     |
++----+-----------+----------+---------+----------+-----------+---------+-------------+---------------------------+
+|  1 | Veeresh   | Yalawar  | Bgk     | Bagalkot | Karnataka | 587101  | 8867743684  | veereshyalawar2@gmail.com |
++----+-----------+----------+---------+----------+-----------+---------+-------------+---------------------------+
+1 row in set (0.01 sec)
+
+mysql> insert into AdressBook (FirstName, LastName, Address, City, State, ZipCode, PhoneNumber, Email) values ('Ravi','Hallur','Rmp','Bagalkot','Karnataka','587101','468374894','Ravi2@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into AdressBook (FirstName, LastName, Address, City, State, ZipCode, PhoneNumber, Email) values ('Shreya','Benkatti','Girimallikarjun','Bagalkot','Karnataka','587101','7676396014','Shreyi2@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from AdressBook;
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+
+| Id | FirstName | LastName | Address         | City     | State     | ZipCode | PhoneNumber | Email                     |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+
+|  1 | Veeresh   | Yalawar  | Bgk             | Bagalkot | Karnataka | 587101  | 8867743684  | veereshyalawar2@gmail.com |
+|  2 | Ravi      | Hallur   | Rmp             | Bagalkot | Karnataka | 587101  | 468374894   | Ravi2@gmail.com           |
+|  3 | Shreya    | Benkatti | Girimallikarjun | Bagalkot | Karnataka | 587101  | 7676396014  | Shreyi2@gmail.com         |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+
+3 rows in set (0.00 sec)
+
+mysql> select State from Adressbook order by state;
++-----------+
+| State     |
++-----------+
+| Karnataka |
+| Karnataka |
+| Karnataka |
++-----------+
+3 rows in set (0.01 sec)
+
+mysql> select firstname from Adressbook order by firstname;
++-----------+
+| firstname |
++-----------+
+| Ravi      |
+| Shreya    |
+| Veeresh   |
++-----------+
+3 rows in set (0.00 sec)
+
+mysql> alter adressbook add contact-type varchar(100);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'adressbook add contact-type varchar(100)' at line 1
+mysql> Alter AdressBook add contact_type varchar(100);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AdressBook add contact_type varchar(100)' at line 1
+mysql> Alter table AdressBook add contact_type varchar(100);
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from AdressBook;
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+| Id | FirstName | LastName | Address         | City     | State     | ZipCode | PhoneNumber | Email                     | contact_type |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+|  1 | Veeresh   | Yalawar  | Bgk             | Bagalkot | Karnataka | 587101  | 8867743684  | veereshyalawar2@gmail.com | NULL         |
+|  2 | Ravi      | Hallur   | Rmp             | Bagalkot | Karnataka | 587101  | 468374894   | Ravi2@gmail.com           | NULL         |
+|  3 | Shreya    | Benkatti | Girimallikarjun | Bagalkot | Karnataka | 587101  | 7676396014  | Shreyi2@gmail.com         | NULL         |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+3 rows in set (0.01 sec)
+
+mysql> update adressbook set contact_type = 'Friend' where Id = 3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update adressbook set contact_type = 'Friend' where Id = 2;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update adressbook set contact_type = 'myself' where Id = 1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from AdressBook;
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+| Id | FirstName | LastName | Address         | City     | State     | ZipCode | PhoneNumber | Email                     | contact_type |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+|  1 | Veeresh   | Yalawar  | Bgk             | Bagalkot | Karnataka | 587101  | 8867743684  | veereshyalawar2@gmail.com | myself       |
+|  2 | Ravi      | Hallur   | Rmp             | Bagalkot | Karnataka | 587101  | 468374894   | Ravi2@gmail.com           | Friend       |
+|  3 | Shreya    | Benkatti | Girimallikarjun | Bagalkot | Karnataka | 587101  | 7676396014  | Shreyi2@gmail.com         | Friend       |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into AdressBook (FirstName, LastName, Address, City, State, ZipCode, PhoneNumber, Email) values ('Ram','Benkatti','Girimallikarjun','Bagalkot','Karnataka','587101','7676396014','Ramyi2@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from AdressBook;
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+| Id | FirstName | LastName | Address         | City     | State     | ZipCode | PhoneNumber | Email                     | contact_type |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+|  1 | Veeresh   | Yalawar  | Bgk             | Bagalkot | Karnataka | 587101  | 8867743684  | veereshyalawar2@gmail.com | myself       |
+|  2 | Ravi      | Hallur   | Rmp             | Bagalkot | Karnataka | 587101  | 468374894   | Ravi2@gmail.com           | Friend       |
+|  3 | Shreya    | Benkatti | Girimallikarjun | Bagalkot | Karnataka | 587101  | 7676396014  | Shreyi2@gmail.com         | Friend       |
+|  4 | Ram       | Benkatti | Girimallikarjun | Bagalkot | Karnataka | 587101  | 7676396014  | Ramyi2@gmail.com          | NULL         |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> delete from adressbook
+    -> where Firstname ='Ram';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from AdressBook;
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+| Id | FirstName | LastName | Address         | City     | State     | ZipCode | PhoneNumber | Email                     | contact_type |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+|  1 | Veeresh   | Yalawar  | Bgk             | Bagalkot | Karnataka | 587101  | 8867743684  | veereshyalawar2@gmail.com | myself       |
+|  2 | Ravi      | Hallur   | Rmp             | Bagalkot | Karnataka | 587101  | 468374894   | Ravi2@gmail.com           | Friend       |
+|  3 | Shreya    | Benkatti | Girimallikarjun | Bagalkot | Karnataka | 587101  | 7676396014  | Shreyi2@gmail.com         | Friend       |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+3 rows in set (0.01 sec)
+
+mysql> select * from AdressBook
+    -> where state = 'karnataka';
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+| Id | FirstName | LastName | Address         | City     | State     | ZipCode | PhoneNumber | Email                     | contact_type |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+|  1 | Veeresh   | Yalawar  | Bgk             | Bagalkot | Karnataka | 587101  | 8867743684  | veereshyalawar2@gmail.com | myself       |
+|  2 | Ravi      | Hallur   | Rmp             | Bagalkot | Karnataka | 587101  | 468374894   | Ravi2@gmail.com           | Friend       |
+|  3 | Shreya    | Benkatti | Girimallikarjun | Bagalkot | Karnataka | 587101  | 7676396014  | Shreyi2@gmail.com         | Friend       |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from AdressBook
+    -> where Firstname = 'v';
+Empty set (0.00 sec)
+
+mysql> select * from AdressBook
+    -> where city = 'bagalkot';
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+| Id | FirstName | LastName | Address         | City     | State     | ZipCode | PhoneNumber | Email                     | contact_type |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+|  1 | Veeresh   | Yalawar  | Bgk             | Bagalkot | Karnataka | 587101  | 8867743684  | veereshyalawar2@gmail.com | myself       |
+|  2 | Ravi      | Hallur   | Rmp             | Bagalkot | Karnataka | 587101  | 468374894   | Ravi2@gmail.com           | Friend       |
+|  3 | Shreya    | Benkatti | Girimallikarjun | Bagalkot | Karnataka | 587101  | 7676396014  | Shreyi2@gmail.com         | Friend       |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from AdressBook
+    -> where Firstname = 'veeresh';
++----+-----------+----------+---------+----------+-----------+---------+-------------+---------------------------+--------------+
+| Id | FirstName | LastName | Address | City     | State     | ZipCode | PhoneNumber | Email                     | contact_type |
++----+-----------+----------+---------+----------+-----------+---------+-------------+---------------------------+--------------+
+|  1 | Veeresh   | Yalawar  | Bgk     | Bagalkot | Karnataka | 587101  | 8867743684  | veereshyalawar2@gmail.com | myself       |
++----+-----------+----------+---------+----------+-----------+---------+-------------+---------------------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select * from AdressBook
+    -> where lastname = 'bekatti';
+Empty set (0.00 sec)
+
+mysql> select * from AdressBook
+    -> where lastname = 'benkatti';
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+-------------------+--------------+
+| Id | FirstName | LastName | Address         | City     | State     | ZipCode | PhoneNumber | Email             | contact_type |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+-------------------+--------------+
+|  3 | Shreya    | Benkatti | Girimallikarjun | Bagalkot | Karnataka | 587101  | 7676396014  | Shreyi2@gmail.com | Friend       |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+-------------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select count (*) from adressbook where city = 'bagalkot';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) from adressbook where city = 'bagalkot'' at line 1
+mysql>  select Count(*) from addressbook where City = 'bagalkot';
+ERROR 1146 (42S02): Table 'adressbook.addressbook' doesn't exist
+mysql>  select Count(*) from adressbook where City = 'bagalkot';
++----------+
+| Count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.01 sec)
+
+mysql>  select Count(*) from adressbook where phonenumber = '8867743684';
++----------+
+| Count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select * from AdressBook
+    -> where lastname = 'b%';
+Empty set (0.00 sec)
+
+mysql> select * from AdressBook
+    -> where lastname = 'B%';
+Empty set (0.00 sec)
+
+mysql> select * from AdressBook
+    -> where firstname = 'b%';
+Empty set (0.00 sec)
+
+mysql> select * from AdressBook
+    -> where firstname = 'S%';
+Empty set (0.00 sec)
+
+mysql> select * from AdressBook
+    -> where firstname like 'b%';
+Empty set (0.01 sec)
+
+mysql> select * from AdressBook
+    -> where firstname like 'S%';
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+-------------------+--------------+
+| Id | FirstName | LastName | Address         | City     | State     | ZipCode | PhoneNumber | Email             | contact_type |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+-------------------+--------------+
+|  3 | Shreya    | Benkatti | Girimallikarjun | Bagalkot | Karnataka | 587101  | 7676396014  | Shreyi2@gmail.com | Friend       |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+-------------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select * from AdressBook
+    -> where lastname like 'y%';
++----+-----------+----------+---------+----------+-----------+---------+-------------+---------------------------+--------------+
+| Id | FirstName | LastName | Address | City     | State     | ZipCode | PhoneNumber | Email                     | contact_type |
++----+-----------+----------+---------+----------+-----------+---------+-------------+---------------------------+--------------+
+|  1 | Veeresh   | Yalawar  | Bgk     | Bagalkot | Karnataka | 587101  | 8867743684  | veereshyalawar2@gmail.com | myself       |
++----+-----------+----------+---------+----------+-----------+---------+-------------+---------------------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select * from AdressBook;
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+| Id | FirstName | LastName | Address         | City     | State     | ZipCode | PhoneNumber | Email                     | contact_type |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+|  1 | Veeresh   | Yalawar  | Bgk             | Bagalkot | Karnataka | 587101  | 8867743684  | veereshyalawar2@gmail.com | myself       |
+|  2 | Ravi      | Hallur   | Rmp             | Bagalkot | Karnataka | 587101  | 468374894   | Ravi2@gmail.com           | Friend       |
+|  3 | Shreya    | Benkatti | Girimallikarjun | Bagalkot | Karnataka | 587101  | 7676396014  | Shreyi2@gmail.com         | Friend       |
++----+-----------+----------+-----------------+----------+-----------+---------+-------------+---------------------------+--------------+
+3 rows in set (0.00 sec)
